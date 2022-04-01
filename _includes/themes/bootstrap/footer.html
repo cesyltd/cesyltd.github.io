@@ -1,0 +1,27 @@
+<footer>
+  <div class="footer-wrapper">
+    <img src="{% asset cesyltd-footer.png @path %}" width="56" height="64" alt="cesyltd" class="footer-logo">
+    <div class="container">
+      <ul class="list-inline pull-right">
+        {% if page.group == 'blog' %}
+          <li class="active"><a href="/blog/" class="active">Blog</a></li>
+        {% else %}
+          <li><a href="/blog/">Blog</a></li>
+        {% endif %}
+        {% assign pages_list = site.pages | sort:"name" %}
+        {% assign group = 'navigation' %}
+        {% include JB/pages_list.html %}
+      </ul>
+      <ul class="list-inline">
+        <li>&copy; Cesy LTD 2018</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+{% asset application.js async %}
+{% include JB/analytics.html %}
+<!-- Respond.js IE8 support of media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->

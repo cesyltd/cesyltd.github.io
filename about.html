@@ -1,0 +1,65 @@
+---
+layout: page
+title: About
+description: About Cesy LTD
+header: About
+group: navigation
+members:
+  -
+    name: Cesidio Di Landa
+    role: Founder
+    twitter: cesid
+    image: cesidiodilanda.jpg
+    contacts:
+      -
+        icon: linkedin
+        username: cesidiodl
+        url: http://www.linkedin.com/in/cesidiodl
+      -
+        icon: twitter
+        username: "@cesid"
+        url: http://twitter.com/cesid
+      -
+        icon: github
+        username: cesidio
+        url: http://github.com/cesidio
+    linkedin: cesidiodl
+  -
+    name: Geremia Taglialatela
+    role: Contractor
+    image: geremiataglialatela.jpg
+    contacts:
+      -
+        icon: twitter
+        username: "@gtagliala"
+        url: http://twitter.com/gtagliala
+      -
+        icon: github
+        username: tagliala
+        url: http://github.com/tagliala
+
+---
+{% include JB/setup.html %}
+<div class="row">
+  {% for member in page.members %}
+    <div class="col-sm-6">
+      <div class="media media-person">
+        {% if member.image %}
+          <div class="pull-left">
+            <img class="media-object" src="{% asset {{member.image}} @path %}" alt="{{member.name}}">
+          </div>
+        {% endif %}
+        <div class="media-body">
+          <h3 class="media-heading">{{member.name}}</h3>
+          <ul class="list-inline">
+          {% for contact in member.contacts %}
+            <li>
+              <span class="fa fa-{{contact.icon}}"></span> <a href="{{contact.url}}">{{contact.username}}</a>
+            <br>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,23 @@
+---
+layout: blog_page
+title: Tags
+header: Posts By Tag
+group: blog_navigation
+icon: tags
+blog: true
+---
+{% include JB/setup.html %}
+
+<ul class="list-inline unstyled">
+  {% assign tags_list = site.tags %}
+  {% include JB/tags_list.html %}
+</ul>
+
+
+{% for tag in site.tags %}
+  <h2 id="{{ tag[0] }}-ref">{{ tag[0] }}</h2>
+  <ul class="list-inline unstyled">
+    {% assign pages_list = tag[1] %}
+    {% include JB/pages_list.html %}
+  </ul>
+{% endfor %}

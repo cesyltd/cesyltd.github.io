@@ -1,0 +1,89 @@
+---
+layout: default
+title: cesyltd
+description: Web Development Agency. Hire us for your projects!
+tagline: Supporting tagline
+products:
+  -
+    title: Company Carpool
+    url: www.companycarpool.com
+    image: companycarpool.jpg
+    description: A solution for companies and organizations interested in providing carpooling to their employees.
+  -
+    title: icare
+    url: icare.diowa.com
+    github: diowa/icare
+    image: icare.jpg
+    description: icare is an open source carpooling platform used as basis for Company Carpool and other customized enterprise solutions.
+technologies:
+  -
+    title: Ruby on Rails
+    url: http://rubyonrails.org/
+    image: Ruby-on-Rails.png
+  -
+    title: CoffeeScript
+    url: http://coffeescript.org/
+    image: CoffeeScript.png
+  -
+    title: Bootstrap
+    url: http://getbootstrap.com
+    image: Bootstrap.png
+  -
+    title: MongoDB
+    url: http://www.mongodb.org
+    image: MongoDB.png
+  -
+    title: PostgreSQL
+    url: http://www.postgresql.org/
+    image: PostgreSQL.png
+  -
+    title: Wordpress
+    url: http://www.wordpress.org
+    image: WordPress.png
+---
+{% include JB/setup.html %}
+<div id="home-jumbotron" class="jumbotron">
+  <div class="container">
+    <h1>Web Development Agency</h1>
+  </div>
+</div>
+<div class="container home-container">
+
+  <!-- Products -->
+  <h2 class="text-center home-title">Our products</h2>
+  {% for product in page.products %}
+    <div class="row row-product">
+      <div class="col-sm-5">
+        <!-- 1060 x 876 -->
+        <a href="http://{{product.url}}" class="thumbnail thumbnail-product"><img class="img-responsive" src="{% asset {{product.image}} @path %}" alt="{{product.title}}"/></a>
+      </div>
+      <div class="col-sm-7">
+        <h3>{{product.title}}</h3>
+        <p>
+          {{product.description}}
+        </p>
+        <p>
+          <span class="fa fa-globe"></span> <a href="http://{{product.url}}">{{product.url}}</a>
+        </p>
+        {% if product.github %}
+          <p>
+            <span class="fa fa-github"></span> <a href="http://github.com/{{product.github}}">{{product.github}}</a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+
+  <!-- Technologies -->
+  <h2 class="text-center home-title">Technologies</h2>
+  <ul class="nav nav-justified">
+  {% for technology in page.technologies %}
+    <li>
+      <a href="{{technology.url}}">
+        <img class="img-technology" alt="{{technology.title}}" src="{% asset {{technology.image}} @path %}"/>
+        <span class="title-technology">{{technology.title}}</span>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>

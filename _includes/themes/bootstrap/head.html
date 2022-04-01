@@ -1,0 +1,36 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if page.title %}{{ page.title }}{% if paginator.page > 1 %}{{ paginator.page | prepend: ' | Page ' }}{% endif %}{% else %}{{ site.name }}{% endif %}</title>
+
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}">
+  {% endif %}
+
+  <meta name="author" content="{{ site.author.name }}">
+
+  <meta content="#fff" name="theme-color">
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.production_url }}">
+
+  {% asset application.css %}
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7COswald:300" rel="stylesheet" type="text/css" media="all">
+
+  <!-- HTML5 shim IE8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+
+  {% include open_graph.html %}
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="{% asset cesyltd-touch-icon.png @path %}" size="144x144">
+  <link rel="icon" href="{% asset cesyltd-touch-icon.png @path %}" size="144x144">
+
+  <!-- atom & rss feed -->
+  <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+  <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+</head>
